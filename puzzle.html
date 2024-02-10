@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Первая страница</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script type="text/javascript">
+
+        let score = 0;
+
+        function checkAnswer(inputId, answer) {
+            let userAnswer = document.getElementById(inputId).value;
+            userAnswer = userAnswer.toLowerCase();
+            for (let i = 0; i < answer.length; i++) {
+                if (userAnswer == answer[i]) {
+                    score++;
+                    break;
+                }
+            }
+        }
+        function checkAnswers() {
+
+            checkAnswer('userAnswer1', ['клаустрофобия', 'клаустрофобы']);
+            checkAnswer('userAnswer2', ['пух', 'пуха']);
+            checkAnswer('userAnswer3', ['зарплата', 'зп']);
+            checkAnswer('userAnswer4', ['шахматист', 'шахматисты']);
+            checkAnswer('userAnswer5', ['порядка', 'порядок']);
+            checkAnswer('userAnswer5', ['зуб', 'зубы']);
+
+            alert('Вы угадали ' + score + ' загадок');
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarScroll"
+                aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarScroll">
+                <div class="navbar-nav">
+                    <a class="nav-link active" href='index.html'>Главная<span class="sr-only">(текущая)</span></a>
+                    <a class="nav-link" href='puzzle.html'>Загадки</a>
+                    <a class="nav-link" href='guess.html'>Угадай число</a>
+                    <a class="nav-link" href='guess2.html'>Угадай число мультиплеер</a>
+                    <a class="nav-link" href='pass-generat.html'>Генератор паролей</a>
+                </div>
+
+            </div>
+            <form class="form-inline">
+                <input class="form-control mr-sm-2" type="search" placeholder="Поиск" aria-label="Поиск">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Поиск</button>
+            </form>
+        </nav>
+        <div class="center_page">
+            <h1 class="center_puzzle">Игра в загадки </h1>
+            <div class="box">
+                <form>
+                    <div class="form-group">
+                        <p class="box_text">Как называется боязнь прихода Санта-Клауса?</p>
+                        <input class="form-control" type="text" id="userAnswer1">
+                    </div>
+                    <div class="form-group">
+                        <p class="box_text">Что поднять земли легко, но трудно кинуть далеко?</p>
+                        <input class="form-control" type="text" id="userAnswer2">
+                    </div>
+                    <div class="form-group">
+                        <p class="box_text">Не лёд, а тает, не лодка, а уплывает.</p>
+                        <input class="form-control" type="text" id="userAnswer3">
+                    </div>
+                    <div class="form-group">
+                        <p class="box_text">Кто ходит сидя?</p>
+                        <input class="form-control" type="text" id="userAnswer4">
+                    </div>
+                    <div class="form-group">
+                        <p class="box_text">Чего нет в женской сумочке?</p>
+                        <input class="form-control" type="text" id="userAnswer5">
+                    </div>
+                    <div class="form-group">
+                        <p class="box_text">Что человек носит два раза в жизни бесплатно,<br> а за третий раз платит?
+                        </p>
+                        <input class="form-control" type="text" id="userAnswer6">
+                    </div>
+
+                    <a href="#" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true"
+                        onclick="checkAnswers();">Ответить</a>
+                </form>
+            </div>
+        </div>
+
+        <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link active" href='index.html'>Главная<span class="sr-only">(текущая)</span></a>
+                    <a class="nav-link" href='puzzle.html'>Загадки</a>
+                    <a class="nav-link" href='guess.html'>Угадай число</a>
+                    <a class="nav-link" href='guess2.html'>Угадай число мультиплеер</a>
+                    <a class="nav-link" href='pass-generat.html'>Генератор паролей</a>
+                </div>
+            </div>
+
+            <div class="footer_copy">
+                Copyright &copy; dad
+            </div>
+            <!-- </div> -->
+        </nav>
+    </div>
+    <script src="js/bootstrap.min.js"></script>
+</body>
+
+</html>

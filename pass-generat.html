@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Первая страница</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script type="text/javascript">
+
+        let letter = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+
+        function readInt() {
+            return +document.getElementById('userAnswer').value;
+        }
+
+        function write(text) {
+            document.getElementById('password').innerHTML = text;
+        }
+
+        function getRandomNumber(max) {
+            return Math.round(Math.random() * max);
+        }
+
+        function generateText(letter, length) {
+            let text = '';
+            for (let i = 0; i < length; i++) {
+                let n = getRandomNumber(letter.length - 1);
+                text = text + letter[n];
+            }
+            return text;
+        }
+
+        function generate() {
+            let length = readInt();
+            let password = generateText(letter, length);
+            write(password);
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarScroll"
+                aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarScroll">
+                <div class="navbar-nav">
+                    <a class="nav-link active" href='index.html'>Главная<span class="sr-only">(текущая)</span></a>
+                    <a class="nav-link" href='puzzle.html'>Загадки</a>
+                    <a class="nav-link" href='guess.html'>Угадай число</a>
+                    <a class="nav-link" href='guess2.html'>Угадай число мультиплеер</a>
+                    <a class="nav-link" href='pass-generat.html'>Генератор паролей</a>
+                </div>
+
+            </div>
+            <form class="form-inline">
+                <input class="form-control mr-sm-2" type="search" placeholder="Поиск" aria-label="Поиск">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Поиск</button>
+            </form>
+
+        </nav>
+        <div class="center_box">
+            <h3 class="center_title">Укажите длину пароля</h3>
+            <div class="center_group">
+                <input type="number" class="form-control" id="userAnswer">
+                <h3 class="gener_pas" id="password"></h3>
+                <a href="#" class="btn btn-primary btn-lg" onClick="generate();">Генерировать</a>
+            </div>
+        </div>
+        <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link active" href='index.html'>Главная<span class="sr-only">(текущая)</span></a>
+                    <a class="nav-link" href='puzzle.html'>Загадки</a>
+                    <a class="nav-link" href='guess.html'>Угадай число</a>
+                    <a class="nav-link" href='guess2.html'>Угадай число мультиплеер</a>
+                    <a class="nav-link" href='pass-generat.html'>Генератор паролей</a>
+                </div>
+            </div>
+
+            <div class="footer_copy">
+                Copyright &copy; dad
+            </div>
+        </nav>
+    </div>
+    <script src="js/bootstrap.min.js"></script>
+</body>
+
+</html>

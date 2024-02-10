@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Первая страница</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script type="text/javascript">
+
+        let answer = parseInt(Math.random() * 100);
+        // let tryCount = 0;
+        // let maxTryCount = 5;
+        let playerNumber = 1;
+
+
+        function readInt() {
+            let number = document.getElementById('userAnswer').value;
+            return +document.getElementById('userAnswer').value;
+
+        }
+
+        function write(text) {
+            document.getElementById('info').innerHTML = text;
+        }
+
+        function hide(id) {
+            document.getElementById(id).style.display = "none";
+        }
+
+
+        function guess() {
+
+            let userAnswer = readInt();
+            if (userAnswer == answer) {
+                write("Поздравляю, выиграл игрок" + playerNumber + "</b>");
+                hide("button");
+                hide("userAnswer");
+            } else if (userAnswer > answer) {
+                changePlayer();
+                write("Вы ввели слишком большое число<br>Ходит игрок " +
+                    playerNumber + "<br>. Введите число от 1 до 100");
+            } else if (userAnswer < answer) {
+                changePlayer();
+                write("Вы ввели слишком маленькое число<br><br>Ходит игрок " +
+                    playerNumber + ".<br>Введите число от 1 до 100");
+            }
+        }
+
+        function changePlayer() {
+            if (playerNumber == 1)
+                playerNumber = 2;
+            else
+                playerNumber = 1;
+
+        }
+
+    </script>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarScroll"
+                aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarScroll">
+                <div class="navbar-nav">
+                    <a class="nav-link active" href='index.html'>Главная<span class="sr-only">(текущая)</span></a>
+                    <a class="nav-link" href='puzzle.html'>Загадки</a>
+                    <a class="nav-link" href='guess.html'>Угадай число</a>
+                    <a class="nav-link" href='guess2.html'>Угадай число мультиплеер</a>
+                    <a class="nav-link" href='pass-generat.html'>Генератор паролей</a>
+                </div>
+
+            </div>
+            <form class="form-inline">
+                <input class="form-control mr-sm-2" type="search" placeholder="Поиск" aria-label="Поиск">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Поиск</button>
+            </form>
+        </nav>
+        <div class="center_page guess_cent">
+            <h1 class="center_puzzle">Угадай число мультиплеер</h1>
+            <div class="box guess">
+
+                <p class="box_header" id="info"><b>Угадайте число от 0 до 100</b><br>
+                    Ходит игрок под номером 1.</p>
+                <div class="box_guess block">
+                    <input type="text" class="form-control" id="userAnswer">
+                    <br>
+                    <a href="#" class="btn btn-primary btn-lg" id="button" onclick="guess();">Начать</a>
+                </div>
+            </div>
+
+            <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a class="nav-link active" href='index.html'>Главная<span class="sr-only">(текущая)</span></a>
+                        <a class="nav-link" href='puzzle.html'>Загадки</a>
+                        <a class="nav-link" href='guess.html'>Угадай число</a>
+                        <a class="nav-link" href='guess2.html'>Угадай число мультиплеер</a>
+                        <a class="nav-link" href='pass-generat.html'>Генератор паролей</a>
+                    </div>
+                </div>
+
+                <div class="footer_copy">
+                    Copyright &copy; dad
+                </div>
+                <!-- </div> -->
+            </nav>
+        </div>
+        <script src="js/bootstrap.min.js"></script>
+</body>
+
+</html>
+</body>
+
+</html>
